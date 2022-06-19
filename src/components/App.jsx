@@ -49,7 +49,7 @@ import PropTypes from 'prop-types'
                              options={['good', 'neutral', 'bad']}
                              onLeaveFeedback={this.onLeaveFeedback}
                          />
-                         {this.state.good + this.state.neutral + this.state.bad == 0 ?
+                         {this.state.good + this.state.neutral + this.state.bad === 0 ?
                              <Notification message="There is no feedback" /> :
                              < Statistics
                                  good={this.state.good}
