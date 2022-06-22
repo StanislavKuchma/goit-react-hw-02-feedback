@@ -16,24 +16,20 @@ import PropTypes from 'prop-types'
         }
 }
 
-     onLeaveFeedback = ({ data }) => {
-         let current = this.state[data];
-         current++;
-         this.setState({
-             [data]: current
-         })
-     }
-   
-         countTotalFeedback = () => {
-             let total = this.state.good + this.state.neutral + this.state.bad
-             return total
-    
-         }
+    onLeaveFeedback = ({ data }) => {
+    this.setState(prevState=>{return{[data]: prevState[data] + 1}})
+    }
 
-         countPositiveFeedbackPercentage = () => {
-             let percentage = Math.round(this.state.good * 100 / (this.state.good + this.state.neutral + this.state.bad))
-             return percentage
-         }
+    countTotalFeedback = ({good, neutral, bad}) => {
+        let total = good + neutral + bad
+        return total
+
+    }
+
+    countPositiveFeedbackPercentage = () => {
+        let percentage = Math.round(this.state.good * 100 / (this.state.good + this.state.neutral + this.state.bad))
+        return percentage
+    }
 
          render(){
              return (
